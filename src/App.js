@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home'
+import List from './components/List'
+import CreateTask from './components/CreateTask'
+import BulkDelete from './components/BulkDelete'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/list-tasks' exact component={List} />
+          <Route path='/create-task' exact component={CreateTask} />
+          <Route path='/bulk-delete' exact component={BulkDelete} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
